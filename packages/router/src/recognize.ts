@@ -160,7 +160,9 @@ function getChildConfig(route: Route): Route[] {
   }
 
   if (route.loadChildren) {
-    return route._loadedConfig !.routes;
+    if (route._loadedConfig !== undefined) {
+      return route._loadedConfig !.routes;
+    }
   }
 
   return [];
